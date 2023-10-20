@@ -1,0 +1,31 @@
+A description of how to compile and/or run your program, including program dependencies
+- Setup
+	- Requirements 
+		- Python 3.10+ (tested on Python 3.11, recommended to use 3.11)
+		- Libraries (install with pip by running `pip3 install [LIBRARY]`)
+			- torch
+			- csv
+			- torchvision
+			- collections
+			- numpy
+			- pathlib 
+	- Constants 
+		- There are 3 constants that help determine the runtime of the program (found at top of nn.py file)
+			- TRAIN
+				- enables/disables training mode. This allows you to update the model with new data from a CSV 
+				- Set to `True` to run the training loop in addition to the testing loop
+			- MODEL_FILE
+				- If you want the program to run using an existing compatible model, provide the full path to a .pt file
+				- This allows you to run the program with a pre-trained model to cut down on training time or to just simply test the performance of a model. 
+			- ITERS
+				- Specifies the number of splits you wish to perform on the data set.
+				- By splitting the data into smaller chunks, more efficient training/testing is achieved
+		- Example setup:
+			`TRAIN=True
+			 MODEL_FILE="/Users/obiwan/csec620/project1/src/py/model.pt"
+			 ITERS = 25` 
+- Running
+	- Once you have a setup that matches what you wish to run, you can run the program by calling `python3 nn.py`
+
+ A performance comparison of this implementation with the performances reported in the paper
+-  The dataset consisted of labeled network capture data including benign and attack traffic. To classify each set of traffic data, I built a deep neural network consisting of a single linear input layer, 4 ReLU hidden layers, and a softmax output layer. The final layer outputs confidences of each possible classification. The node in the output layer with the largest value represents the classification selected for the input set. To train the network, this classification guess was compared to the actual classification provided in the dataset. Backpropogation then adjusted the necesary weights to fine tune the model. The models in the paper demonstrate varrying precision, recall, and f1 scores; best of which being the ID3 (Iterative Dichotomiser 3) algorithm. This decision tree algorithm conveys the high performance that such algorithms have for multi-class classification problems. In these classification problems, often a simpler heuristic solution can provide adequate performance without the large computational overhead. When using a deep neural network for the same problem, often extensive training is needed to tune the network to classify the many potential results. This poses a significant computational issue. Unfortunately, my original training only consisted of 15 epochs, leading to less accurate results. To properly tune the model for this classification issue, hundreds of epochs would be needed. This said, even with undertraining, my model demonstrated greater than expected accuracy (71% precision to be exact). With additional training, the model will increase this precision. This can be done by running the provided program with the default settings. 
