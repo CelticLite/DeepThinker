@@ -4,7 +4,7 @@ A generic neural network for data multi-classification
 
 ## What is this? 
 
-An implementation of a basic deep learning network to be used for classification of data. This supports multi-class datasets in which a single datapoint can fit one of many classes. The program will automatically attempt to utilize a GPU if present, but defaults back to running on your CPU if none is found. 
+An implementation of a basic deep learning network to be used for classification of data. This supports multi-class datasets in which a single datapoint can fit one of many classes. The program will automatically attempt to utilize a GPU if present, but defaults back to running on your CPU if none is found. This started as a project for class, so it is very much 
 
 ## Setup
 

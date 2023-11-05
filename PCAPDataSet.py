@@ -1,5 +1,6 @@
 import numpy as np 
 import torch
+from torch.utils.data import Dataset
 
 ## EXAMPLE: this example data type can be used for labeled PCAP data. Copy and modify this class to fit your own data
 class PCAPDataSet(Dataset):
